@@ -6,17 +6,13 @@ const cors = require("cors");
 
 const app = express();
 
-const allowedOrigins = [
-  'http://localhost:3000',
-];
-
-
+const allowedOrigins = ["http://localhost:3000"];
 
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
 
-    const cleanOrigin = origin.replace(/\/$/, ''); // remove trailing slash
+    const cleanOrigin = origin.replace(/\/$/, ""); // remove trailing slash
 
     if (allowedOrigins.includes(cleanOrigin)) {
       callback(null, true);
